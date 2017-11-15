@@ -1,0 +1,9 @@
+﻿Index99
+<ul>
+    @foreach (var cheese in ViewBag.cheeses)
+    {
+        <li>@cheese.Key - @cheese.Value</li>
+    }
+</ul>
+<a asp-controller="Cheese" asp-action="Add">Add Cheese</a><br/>
+<a asp-controller="Cheese" asp-action="Remove">Remove Cheese (using select box)</a>
