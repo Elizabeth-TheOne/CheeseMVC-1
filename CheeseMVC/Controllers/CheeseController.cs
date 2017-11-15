@@ -52,5 +52,26 @@ namespace CheeseMVC.Controllers
             Cheeses.Remove(removedCheese);
             return Redirect("/Cheese");
         }
+
+        [HttpGet]
+        ///<summary>Show the remove form (using checkboxes)</summary>
+        public IActionResult RemoveWithCheckboxes()
+        {
+            ViewBag.cheeses = Cheeses;
+            return View();
+        }
+
+        [HttpPost]
+        [Route("/Cheese/RemoveWithCheckboxes")]
+        /// <summary>Remove one or more cheeses. </summary>
+        public IActionResult RemoveWithCheckboxes(string[] cheesesToRemove)
+        {
+            foreach(var cheese in cheesesToRemove)
+            {
+                Cheeses.Remove(cheese);
+            }
+            
+            return Redirect("/Cheese");
+        }
     }
 }

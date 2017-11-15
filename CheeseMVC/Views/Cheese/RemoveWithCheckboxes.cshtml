@@ -1,0 +1,18 @@
+﻿Remove
+
+@if (!String.IsNullOrEmpty(ViewBag.error)) { 
+    <div class="alert alert-danger">
+        @ViewBag.error
+    </div>
+}
+
+<form method="post">
+    <ul>
+        @foreach (var cheese in ViewBag.cheeses)
+        {
+            <li>@cheese.Key <input type="checkbox" name="cheesesToRemove" value="@cheese.Key"/></li>
+        }
+    </ul>
+    <button>remove</button>
+</form>
+<a asp-controller="Cheese" asp-action="Add">Add Cheese</a><br/>
